@@ -1,0 +1,82 @@
+#####################################################
+# DESCRIPTION of the stastical approach in the ICON-A
+######################################################
+
+mo_subgridscalce_ice.f90 is used for the aggregation in the mo_cloud.f90 script
+
+================================================================
+
+SELECT CASE(iagg)
+            CASE(1) !default
+               zsaut     = zxib(jl)*(1._wp-1._wp/(1._wp+zsaut*pdtime*zxib(jl)))
+            CASE(2) ! AGGstoch
+               !xirand = ztmp6(nl)
+               CALL subgridscale_ice(zxib(jl),zxlb(jl), xirand) 
+               zsaut     = xirand*(1._wp-1._wp/(1._wp+zsaut*pdtime*xirand))
+
+	    CASE(3) ! default with bias
+               nsub = 100
+               zsubagg = 0.0_wp
+               ztmp5   = 0.0_wp
+
+               DO cl = 1,nsub
+               CALL subgridscale_ice(zxib(jl),zxlb(jl), xirand)  
+               ztmp5     = xirand*(1._wp-1._wp/(1._wp+zsaut*pdtime*xirand))
+               zsubagg   = zsubagg + ztmp5
+               END DO
+
+               zsautsub = zsubagg/nsub
+               
+               zsaut     = zxib(jl)*(1._wp-1._wp/(1._wp+zsaut*pdtime*zxib(jl)))
+
+               if (zsautsub .ne. 0.0_wp .and. zsaut .ne. 0.0_wp) then
+               pbias(jl,jk) = abs((zsaut - zsautsub)/zsautsub)
+               !write(*,*) zsaut, zsautsub, pbias(jl,jk)
+               end if
+      
+            CASE(4) ! stoch aggregation with bias
+             nsub = 500
+             zsubagg = 0.0_wp
+             ztmp5   = 0.0_wp
+
+             if (zxib(jl) .gt. 0.0_wp) then
+             DO cl = 1,nsub
+               CALL subgridscale_ice(zxib(jl),zxlb(jl), xirand)  
+               ztmp5     = xirand*(1._wp-1._wp/(1._wp+zsaut*pdtime*xirand))
+               zsubagg   = zsubagg + ztmp5
+             END DO    
+             end if
+               zsautsub = zsubagg/nsub 
+               
+               xirand = ztmp6(nl)
+               zsaut     = xirand*(1._wp-1._wp/(1._wp+zsaut*pdtime*xirand))
+
+               !write(*,*)zxib(jl), xirand
+
+               if (zsautsub .ne. 0.0_wp .and. zsaut .ne. 0.0_wp) then
+               pbias(jl,jk) = abs((zsaut - zsautsub)/zsautsub)
+            end if
+
+            CASE(5) ! sampled aggregation 
+             nsub = 500
+             zsubagg = 0.0_wp
+             ztmp5   = 0.0_wp
+
+             if (zxib(jl) .gt. 0.0_wp) then
+             DO cl = 1,nsub
+               CALL subgridscale_ice(zxib(jl),zxlb(jl), xirand)  
+               ztmp5     = xirand*(1._wp-1._wp/(1._wp+zsaut*pdtime*xirand))
+               zsubagg   = zsubagg + ztmp5
+             END DO    
+             end if
+               zsaut = zsubagg/nsub 
+
+            
+            END SELECT
+
+
+
+======================================================================
+
+additionally all of the process rates (cloud ice related) are send to the output stream in mo_echam_phy_memory.f90
+
