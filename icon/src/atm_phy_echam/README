@@ -5,6 +5,9 @@
 mo_subgridscalce_ice.f90 is used for the aggregation in the mo_cloud.f90 script
 
 ================================================================
+pxivar(jl,jk) = zxib(jl)**2 * ((4._wp/3._wp) * zclcaux(jl) - zclcaux(jl)**2) ! calculation of cloud ice variance
+
+....
 
 SELECT CASE(iagg)
             CASE(1) !default
