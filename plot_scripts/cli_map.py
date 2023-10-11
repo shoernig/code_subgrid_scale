@@ -30,8 +30,8 @@ letters = ['a','b','c','d','e','f','g','h']
 
 
 #==============================================================================================================
-#ifileObs = '/work/bb1093/b380620/DATA/Data/DARDAR_ICON_GCM_grid_R2B04/monthly/DARDAR_ICON_GCM_grid_R2B04_int_v2.0_2007-2010_avg.nc'
-ifileObs = '/work/bb1093/b380620/DATA/Data/DARDAR_ICON_GCM_grid_R2B04/yearly/DARDAR_ICON_GCM_grid_R2B04_2007-2010_avg.nc'
+ifileObs = '/work/bb1093/b380620/DATA/Data/DARDAR_ICON_GCM_grid_R2B04/monthly/DARDAR_ICON_GCM_grid_R2B04_int_v2.0_2007-2010_avg.nc'
+#ifileObs = '/work/bb1093/b380620/DATA/Data/DARDAR_ICON_GCM_grid_R2B04/yearly/DARDAR_ICON_GCM_grid_R2B04_2007-2010_avg.nc'
 
 data = xr.open_dataset(ifileObs)
 lat = data.lat
