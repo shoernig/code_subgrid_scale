@@ -1,0 +1,21 @@
+import os, sys
+from regrid import DARDAR_L2toL3_regrid
+
+
+ipath_dar = '/work/bb1100/from_Mistral/bb1100/b380620/DATA/Data/DARDAR_L2_cldclass_flag/'
+
+
+
+#years = ['2006','2007','2009','2010']
+years = ['2009']
+
+
+for year in years:
+    ipath    = ipath_dar+year
+    days     = os.listdir(ipath)
+    for day in days:
+        if day[5:7] == '01':
+            print(day)
+            DARDAR_L2toL3_regrid(year,day)
+        
+

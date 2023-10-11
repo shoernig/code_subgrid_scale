@@ -1,0 +1,46 @@
+2009_12_02
+2009_12_02
+2009_12_05
+2009_12_05
+2009_12_06
+2009_12_06
+2009_12_07
+2009_12_07
+2009_12_04
+2009_12_04
+2009_12_03
+2009_12_03
+2009_12_01
+2009_12_01
+
+********************************************************************************
+*                                                                              *
+*  This is the automated job summary provided by DKRZ.                         *
+*  If you encounter problems, need assistance or have any suggestion, please   *
+*  write an email to                                                           *
+*                                                                              *
+*  --  support@dkrz.de --                                                      *
+*                                                                              *
+*                       We hope you enjoyed the DKRZ supercomputer LEVANTE ... *
+*
+* JobID            : 6479824
+* JobName          : DAR_12                                            
+* Account          : bb1093
+* User             : b380620 (24824), bb0839 (1483)                    
+* Partition        : compute
+* QOS              : normal
+* Nodelist         : l40662 (1)                                                
+* Submit date      : 2023-08-14T09:32:41
+* Start time       : 2023-08-14T09:34:18
+* End time         : 2023-08-14T09:34:21
+* Elapsed time     : 00:00:03 (Timelimit=08:00:00)                     
+* Command          : /home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/12/
+*                    run.sh
+* WorkDir          : /home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/12
+*
+* StepID | JobName      NodeHours    MaxRSS [Byte] (@task)
+* ------------------------------------------------------------------------------
+* batch  | batch          0.00083
+* extern | extern         0.00083                2552K (0)
+* ------------------------------------------------------------------------------
+

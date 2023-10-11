@@ -1,0 +1,61 @@
+2009_06_24
+2009_06_01
+2009_06_15
+2009_06_13
+2009_06_08
+2009_06_10
+2009_06_21
+2009_06_20
+2009_06_16
+2009_06_04
+2009_06_29
+2009_06_12
+2009_06_22
+2009_06_19
+2009_06_05
+2009_06_03
+2009_06_25
+2009_06_07
+2009_06_28
+2009_06_09
+2009_06_30
+2009_06_27
+2009_06_02
+2009_06_14
+2009_06_17
+2009_06_06
+2009_06_26
+2009_06_11
+2009_06_23
+
+********************************************************************************
+*                                                                              *
+*  This is the automated job summary provided by DKRZ.                         *
+*  If you encounter problems, need assistance or have any suggestion, please   *
+*  write an email to                                                           *
+*                                                                              *
+*  --  support@dkrz.de --                                                      *
+*                                                                              *
+*                       We hope you enjoyed the DKRZ supercomputer LEVANTE ... *
+*
+* JobID            : 6447830
+* JobName          : DAR_06                                            
+* Account          : bb1093
+* User             : b380620 (24824), bb0839 (1483)                    
+* Partition        : compute
+* QOS              : normal
+* Nodelist         : l40353 (1)                                                
+* Submit date      : 2023-08-10T09:09:19
+* Start time       : 2023-08-10T09:14:05
+* End time         : 2023-08-10T09:14:10
+* Elapsed time     : 00:00:05 (Timelimit=08:00:00)                     
+* Command          : /home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/06/
+*                    run.sh
+* WorkDir          : /home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/06
+*
+* StepID | JobName      NodeHours    MaxRSS [Byte] (@task)
+* ------------------------------------------------------------------------------
+* batch  | batch           0.0014
+* extern | extern          0.0014                2552K (0)
+* ------------------------------------------------------------------------------
+

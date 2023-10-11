@@ -1,0 +1,33 @@
+slurmstepd: error: *** JOB 6265725 ON l40662 CANCELLED AT 2023-07-29T15:47:44 ***
+
+********************************************************************************
+*                                                                              *
+*  This is the automated job summary provided by DKRZ.                         *
+*  If you encounter problems, need assistance or have any suggestion, please   *
+*  write an email to                                                           *
+*                                                                              *
+*  --  support@dkrz.de --                                                      *
+*                                                                              *
+*                       We hope you enjoyed the DKRZ supercomputer LEVANTE ... *
+*
+* JobID            : 6265725
+* JobName          : DAR_11                                            
+* Account          : bb1093
+* User             : b380620 (24824), bb0839 (1483)                    
+* Partition        : compute
+* QOS              : normal
+* Nodelist         : l40662 (1)                                                
+* Submit date      : 2023-07-29T13:27:32
+* Start time       : 2023-07-29T14:48:28
+* End time         : 2023-07-29T15:47:44
+* Elapsed time     : 00:59:16 (Timelimit=08:00:00)                     
+* Command          : /home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/11/
+*                    run.sh
+* WorkDir          : /home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/11
+*
+* StepID | JobName      NodeHours    MaxRSS [Byte] (@task)
+* ------------------------------------------------------------------------------
+* batch  | batch             0.99
+* extern | extern            0.99                2492K (0)
+* ------------------------------------------------------------------------------
+

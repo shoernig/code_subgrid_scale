@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/09/main.py", line 7, in <module>
+    years = os.listdir(ipath)
+FileNotFoundError: [Errno 2] No such file or directory: '/work/bb1093/b380620/Data/2B-CLDCLASS/'
+
+********************************************************************************
+*                                                                              *
+*  This is the automated job summary provided by DKRZ.                         *
+*  If you encounter problems, need assistance or have any suggestion, please   *
+*  write an email to                                                           *
+*                                                                              *
+*  --  support@dkrz.de --                                                      *
+*                                                                              *
+*                       We hope you enjoyed the DKRZ supercomputer LEVANTE ... *
+*
+* JobID            : 6247712
+* JobName          : DAR_09                                            
+* Account          : bb1093
+* User             : b380620 (24824), bb0839 (1483)                    
+* Partition        : compute
+* QOS              : normal
+* Nodelist         : l40353 (1)                                                
+* Submit date      : 2023-07-28T10:52:17
+* Start time       : 2023-07-28T12:01:06
+* End time         : 2023-07-28T12:01:11
+* Elapsed time     : 00:00:05 (Timelimit=08:00:00)                     
+* Command          : /home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/09/
+*                    run.sh
+* WorkDir          : /home/b/b380620/DATA/DARDAR_cloud_ice/HDF/combine/month/09
+*
+* StepID | JobName      NodeHours    MaxRSS [Byte] (@task)
+* ------------------------------------------------------------------------------
+* batch  | batch           0.0014
+* extern | extern          0.0014                2492K (0)
+* ------------------------------------------------------------------------------
+
