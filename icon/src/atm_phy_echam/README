@@ -5,6 +5,11 @@
 mo_subgridscalce_ice.f90 is used for the aggregation in the mo_cloud.f90 script
 
 ================================================================
+ USE mo_subgridscale_ice,      ONLY: subgridscale_ice
+
+......
+
+
 pxivar(jl,jk) = zxib(jl)**2 * ((4._wp/3._wp) * zclcaux(jl) - zclcaux(jl)**2) ! calculation of cloud ice variance
 
 ....
@@ -80,6 +85,24 @@ SELECT CASE(iagg)
 
 
 ======================================================================
+prepare process rates for output: in mo_cloud.f90
 
-additionally all of the process rates (cloud ice related) are send to the output stream in mo_echam_phy_memory.f90
+paggdiag(jl,jk) = zsaut*zclcaux(jl)/pdtime  !aggregation rate
+pacidiag(jl,jk) = (zclcaux(jl)*zsaci2 + zclcstar*zsaci1)/pdtime !accretion rate
+
+! process rates:
+
+pdepdiag(jl,jk) = zdep(jl)/pdtime     ! Deposition rate
+pmltdiag(jl,jk) = zimlt(jl)/pdtime    ! Melting rate
+pevpdiag(jl,jk) = zxievap(jl)/pdtime  ! Evaporation rate
+pseddiag(jl,jk) = zqsed(jl)/pdtime    ! Sedimentaion
+pfrldiag(jl,jk) = zfrl(jl)/pdtime     ! Freezing rate
+
+
+
+=====================================================================
+
+additionally all of the process rates (cloud ice related) are send to the output stream in mo_echam_phy_memory.f90:
+
+
 
