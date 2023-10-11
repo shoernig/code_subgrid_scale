@@ -18,7 +18,7 @@ rm -f main_regrid.py #run_regrid.sh
 
 cat>>main_regrid.py<<EOF
 import os, sys
-from regrid_reff import DARDAR_L2toL3_regrid
+from regrid import DARDAR_L2toL3_regrid
 
 
 ipath_dar = '/work/bb1093/b380620/DATA/Data/DARDAR_L2_cldclass_flag/'

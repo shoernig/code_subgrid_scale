@@ -20,7 +20,7 @@ rm -f main.py #run.sh
 
 cat >>main.py<<EOF
 import os, sys
-from cldclass_reff import DARDAR_cldclass
+from cldclass import DARDAR_cldclass
 
 
 ipath = '/work/bb1093/b380620/DATA/Data/2B-CLDCLASS/'

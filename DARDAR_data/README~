@@ -1,0 +1,11 @@
+_______________________________________
+
+INSTRUCTION TO PROCEED THE DARDAR DATA
+_______________________________________
+
+
+1) Run run.sh --> combine CLDCLASS flag and DARDAR data and change in the run.sh script the year
+
+2) Run run_script_regrid.sh --> regrid the data to ICON grid
+
+3) python monthly.py --> calculate monthly mean data

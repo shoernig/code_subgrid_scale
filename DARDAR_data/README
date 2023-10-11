@@ -1,0 +1,19 @@
+_______________________________________
+
+INSTRUCTION TO PROCEED THE DARDAR DATA
+_______________________________________
+
+
+1) Run run.sh --> combine CLDCLASS flag and DARDAR data and change in the run.sh script the year
+
+2) Run run_script_regrid.sh --> regrid the data to ICON grid
+
+3) python monthly.py --> calculate monthly mean data
+
+4) after running the previous scripts for multiple years use CDO to calculate the multiyear average for the monthly mean:
+
+got to: /work/bb1093/b380620/DATA/Data/DARDAR_ICON_GCM_grid_R2B04/monthly
+cdo timmean -cat 2007/* 2008/* 2009/* 2010/* DARDAR_ICON_GCM_grid_R2B04_v2.0_2007-2010_avg.nc
+
+5) run interpol_plev.py to interpolate the DARDAR data to the same pressure levels used for ICON
+
