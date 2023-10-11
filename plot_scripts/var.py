@@ -22,7 +22,7 @@ import cartopy.mpl.ticker as cticker
 #cmap =  matplotlib.colors.ListedColormap(["white","lightskyblue","skyblue","steelblue","green","yellowgreen","yellow","gold","orange","red","firebrick","darkred","maroon"])
 cmap=cmr.chroma_r
 #---------------------------------
-plt.rcParams.update({'font.size': 23})
+plt.rcParams.update({'font.size': 45})
 #-------------------------------------
 
 
@@ -67,7 +67,7 @@ opath = '/work/bb1093/b380620/plots/variance/'
 
 nlev = 4
 
-fig, axs = plt.subplots(nlev,2,figsize=(15,15),subplot_kw=dict(projection=ccrs.PlateCarree()))
+fig, axs = plt.subplots(nlev,2,figsize=(33,30),subplot_kw=dict(projection=ccrs.PlateCarree()))
 
 lstart = 5
 
@@ -122,10 +122,10 @@ for ax in axs.ravel()[::2]:
 cax =  fig.add_axes([0.15,0.06,0.7,0.02])
 cbar = fig.colorbar(p2,cax=cax,orientation='horizontal')
 cbar.set_label('cloud ice variance(kg/kg)**2')
-fig.subplots_adjust(wspace=0.1)  
+fig.subplots_adjust(wspace=-0.1)  
 #fig.tight_layout()
 #fig.text(0,0,'DARDAR')  
-#plt.savefig(opath+'var.pdf')
+#plt.savefig(opath+'var.png')
 #plt.close()
 
 

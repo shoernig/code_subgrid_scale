@@ -68,7 +68,7 @@ opath = '/work/bb1093/b380620/plots/variance/'
 
 nlev = 4
 
-fig, axs = plt.subplots(nlev,2,figsize=(30,30),sharex=True,sharey=True,subplot_kw=dict(projection=ccrs.PlateCarree()))
+fig, axs = plt.subplots(nlev,2,figsize=(33,30),sharex=True,sharey=True,subplot_kw=dict(projection=ccrs.PlateCarree()))
 
 lstart = 5
 
