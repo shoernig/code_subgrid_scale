@@ -52,7 +52,7 @@ letters = ['b)','c)','d)']
 
 for iexp, iname in zip(EXPS,names):
     ik = EXPS.index(iexp)
-    ifile = ipath+iexp+'/'+iexp+'_1990.nc'
+    ifile = ipath+iexp+'/'+iexp+'_2006.nc'
     
     print(ifile)
     
