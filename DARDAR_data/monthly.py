@@ -213,8 +213,8 @@ for imon in range(12):
         iwpdar[idx]   = iwpdar_sum
         pciwpdar[idx] = pciwpdar_sum
         
-        count[idx] = total_count[:] 
-        var[idx]   = np.ma.masked_array(iwc_var)/np.ma.masked_equal(count[idx],0) - (iwc[idx]/np.ma.masked_equal(total_count[idx],0))**2
+        count[idx] = total_count[:]
+        var[idx]   = np.ma.masked_array(iwc_var)/np.ma.masked_equal(count[idx],0) - (iwc[idx]/np.ma.masked_equal(count[idx],0))**2
         #var[idx]   = np.ma.masked_array(iwc_var)
     
         ta[idx]  = ta_sum
