@@ -36,7 +36,7 @@ ifileObs = '/work/bb1093/b380620/DATA/Data/DARDAR_ICON_GCM_grid_R2B04/monthly/DA
 data = xr.open_dataset(ifileObs)
 lat = data.lat
 lonSat = data.lon
-qiSat = data.qi[0]
+qiSat = data.qi
 plev  = data.plev
 data.close()
 
@@ -125,5 +125,5 @@ cbar.set_label('cloud ice mixing ratio (kg/kg)')
 fig.subplots_adjust(wspace=-0.1)  
 #fig.tight_layout()
 #fig.text(0,0,'DARDAR')  
-#plt.savefig(opath+'var.pdf')
-#plt.close()
+plt.savefig('cli_map.pdf', bbox_inches="tight")
+plt.close()

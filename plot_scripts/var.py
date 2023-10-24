@@ -32,6 +32,7 @@ letters = ['a','b','c','d','e','f','g','h']
 #==============================================================================================================
 ifileObs = '/work/bb1093/b380620/DATA/Data/DARDAR_ICON_GCM_grid_R2B04/monthly/DARDAR_ICON_GCM_grid_R2B04_int_v2.0_2007-2010_avg.nc'
 
+
 data = xr.open_dataset(ifileObs)
 lat = data.lat
 lonSat = data.lon
@@ -71,7 +72,7 @@ fig, axs = plt.subplots(nlev,2,figsize=(33,30),subplot_kw=dict(projection=ccrs.P
 
 lstart = 5
 
-level = np.arange(0,1.55e-9,0.5e-10)
+level = np.arange(0,2.25e-9,0.5e-10)
 print(level)
 
 for ilev,iplot in zip(range(nlev)[::-1],range(nlev)):
@@ -125,7 +126,8 @@ cbar.set_label('cloud ice variance(kg/kg)**2')
 fig.subplots_adjust(wspace=-0.1)  
 #fig.tight_layout()
 #fig.text(0,0,'DARDAR')  
-#plt.savefig(opath+'var.png')
-#plt.close()
+plt.savefig('var.pdf', bbox_inches="tight")
+#plt.savefig(opath+'var.pdf')
+plt.close()
 
 

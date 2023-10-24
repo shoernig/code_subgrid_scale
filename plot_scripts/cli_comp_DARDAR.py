@@ -67,8 +67,9 @@ for iax in ax:
     ik = ik+1
     
 cax = fig.add_axes([0.95,0.12,0.03,0.75])
-fig.colorbar(p1,cax=cax)    
-
+fig.colorbar(p1,cax=cax)  
+plt.savefig('cli_DARDAR_comp.pdf', bbox_inches="tight")  
+plt.close()
 
 
 

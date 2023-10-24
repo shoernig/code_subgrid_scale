@@ -31,7 +31,7 @@ EXPS  = ['icon_aes_ctrl_cosp','icon_aes_ctrl_cosp_aggstoch']
 names = ['CTRL','AGGstoch']
 letters = ['a)','b)']
 
-fig,ax = plt.subplots(2,1,figsize=(30, 20))
+fig,ax = plt.subplots(2,1,figsize=(40, 30))
 ax=ax.ravel()
 
 for iexp,iname,iax in zip(EXPS,names,ax):
@@ -44,9 +44,10 @@ for iexp,iname,iax in zip(EXPS,names,ax):
     if iname == names[0]:
         ref = cli
         p = iax.contourf(cli.lat,cli.lev/100,cli.mean({'time','lon'}),
-                         cmap=cmr.get_sub_cmap('cmr.chroma_r',0., 0.9),
+                         cmap=cmr.chroma_r,
+                         levels=np.arange(0,15,1),
                          extend='max')
-        iax.text(-100,10,'hPa')
+        iax.text(-105,20,'hPa')
         iax.text(95,-20,'mg/kg')
         iax.set_title(iname)
     else:
@@ -57,7 +58,7 @@ for iexp,iname,iax in zip(EXPS,names,ax):
         
         p = iax.contourf(cli.lat,cli.lev/100,diff.mean({'time','lon'}),
                          cmap =cmr.fusion_r,
-                         levels = np.arange(-1.6,1.8,0.2),
+                         levels = np.arange(-2,2.2,0.2),
                          extend='both')
         
         #p = iax.contourf(cli.lat,cli.lev/100,proc.mean({'time','lon'}),
@@ -71,7 +72,8 @@ for iexp,iname,iax in zip(EXPS,names,ax):
     iax.set_xticks(np.arange(-80,100,20))
     iax.set_xticklabels(['80S','60S','40S','20S','EQ','20N','40N','60N','80N'])
     fig.colorbar(p,ax=iax)
-    
+    plt.savefig('cli_model_comp.pdf', bbox_inches="tight")
+    plt.close()
         
     
 

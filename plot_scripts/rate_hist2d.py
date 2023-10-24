@@ -131,8 +131,8 @@ fig.colorbar(p2,cax=cax,orientation='horizontal',label='Aggregation rate [mg/kg 
 
 cax = fig.add_axes([0.66,0.02,0.25,0.03])
 fig.colorbar(p1,cax=cax,orientation='horizontal')
-#plt.savefig('rate_comp.png')
-#plt.close()
+plt.savefig('rate_comp.pdf', bbox_inches="tight")
+plt.close()
     
     
     
