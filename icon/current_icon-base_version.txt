@@ -1,0 +1,6 @@
+2018.04.27: The current icon base version corresponds to the tag 'icon-aes-1.3.00' from git@git.mpimet.mpg.de:icon-aes.git:
+
+commit 050a22bdb3bba70a67f44848aeb7203247f003ec (HEAD -> icon-aes-1.3.0, tag: icon-aes-1.3.00)
+Author: monika.esch <monika.esch@mpimet.mpg.de>
+Date:   Fri Sep 1 09:13:39 2017 +0200
+

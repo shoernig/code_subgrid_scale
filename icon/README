@@ -1,0 +1,30 @@
+BUILDING THE MODEL:
+--------------------
+
+copy the icon-aes git repository (version of current_icon-base_version.txt)
+
+
+Configure & make executables:
+............................
+
+./configure --enable-atmo --enable-jsbach --enable-ocean --with-fortran
+generates the Makefile
+
+
+./build_command
+compile & build executables
+
+make -j8
+
+create run scripts:
+...................
+
+./make_runscripts
+
+
+POST PROCESSING:
+----------------
+to regrid the icon-aes data to lat-lon-grid:
+
+cdo remapdis,t63grid input.nc output.nc
+

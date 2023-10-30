@@ -1,0 +1,13 @@
+DARDAR_data:
+-----------
+
+These scripts provide the DARDAR data on the ICON-AES-R2B04 grid from DARDAR-Nice and 2B-CLDCLASS data set
+
+icon:
+----
+
+There is the one file included, which we added to the source code of the ICON model. Informations about the icon version and how to build the model are given in the README file. Since the icon cource code has no open access, there is just this new subrountine file included, which is placed in the right directory by following the directory structure of icon-aes. More informations on how to get access to the ICON code is in this link: https://code.mpimet.mpg.de/projects/iconpublic/wiki/How_to_obtain_the_model_code
+
+plot_scripts:
+------------
+plot scripts for the respective paper plots. 
