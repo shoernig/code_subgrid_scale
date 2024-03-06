@@ -22,12 +22,12 @@ import cartopy.mpl.ticker as cticker
 #cmap =  matplotlib.colors.ListedColormap(["white","lightskyblue","skyblue","steelblue","green","yellowgreen","yellow","gold","orange","red","firebrick","darkred","maroon"])
 cmap=cmr.chroma_r
 #---------------------------------
-plt.rcParams.update({'font.size': 45})
+plt.rcParams.update({'font.size': 30})
 #-------------------------------------
 
 
-letters = ['a','b','c','d','e','f','g','h']
 
+letters = ['a','b','c','d','e','f','g','h','i','j','k','l']
 
 #==============================================================================================================
 ifileObs = '/work/bb1093/b380620/DATA/Data/DARDAR_ICON_GCM_grid_R2B04/monthly/DARDAR_ICON_GCM_grid_R2B04_int_v2.0_2007-2010_avg.nc'
@@ -58,6 +58,14 @@ qiMod = data.xivar[0,::-1,:,:]
 plev  = data.lev[::-1]
 data.close()
 
+qiMod.coords['lon'] = (qiMod.coords['lon'] + 180) % 360 - 180
+qiMod = qiMod.sortby(qiMod.lon)
+
+
+
+Diff = qiMod.values - qiSat.values
+Diff = xr.DataArray(Diff,coords=qiSat.coords,dims=qiSat.dims)
+
 #qivarMod, lonMod = shiftgrid(180.,qivarMod,lonMod,start=False)
 
 
@@ -68,11 +76,11 @@ opath = '/work/bb1093/b380620/plots/variance/'
 
 nlev = 4
 
-fig, axs = plt.subplots(nlev,2,figsize=(33,30),subplot_kw=dict(projection=ccrs.PlateCarree()))
+fig, axs = plt.subplots(nlev,3,figsize=(30,20),subplot_kw=dict(projection=ccrs.PlateCarree()))
 
 lstart = 5
 
-level = np.arange(0,2.25e-9,0.5e-10)
+level = np.arange(0,1.25e-9,0.5e-10)
 print(level)
 
 for ilev,iplot in zip(range(nlev)[::-1],range(nlev)):
@@ -94,25 +102,37 @@ for ilev,iplot in zip(range(nlev)[::-1],range(nlev)):
         add_colorbar=False,
         extend='max'
         )
+    p3 = Diff[ilev+lstart].plot(
+       transform=ccrs.PlateCarree(),
+       ax=axs[iplot,2],
+       levels=np.arange(-0.6,0.7,0.1)*1e-9,
+       cmap=cmr.fusion_r,
+       add_colorbar=False,
+       extend='both'
+       )
     axs[iplot,0].set_title(pressure+' hPa')
     axs[iplot,1].set_title(pressure+' hPa')
+    axs[iplot,2].set_title(pressure+' hPa')
     
     axs[iplot,0].text(85,97,'DARDAR')
     axs[iplot,1].text(120,97,'ICON')
+    axs[iplot,2].text(140,97,'Diff')
+    
+    
 
 for ax,ilet in zip(axs.ravel(),letters):
     ax.coastlines()
     ax.text(-180,95,ilet+')')
     #ax.add_colorbar(False)
     
-for ax in axs.ravel()[6::]:
+for ax in axs.ravel()[9::]:
     # Define the xticks for longitude
     ax.set_xticks(np.arange(-180,181,120), crs=ccrs.PlateCarree())
     lon_formatter = cticker.LongitudeFormatter()
     ax.xaxis.set_major_formatter(lon_formatter)
     ax.set_xlabel('')
 
-for ax in axs.ravel()[::2]:
+for ax in axs.ravel()[::3]:
     # Define the yticks for latitude
     ax.set_yticks(np.arange(-90,91,30), crs=ccrs.PlateCarree())
     lat_formatter = cticker.LatitudeFormatter()
@@ -120,14 +140,27 @@ for ax in axs.ravel()[::2]:
     ax.set_ylabel('')
     #ax.add_colorbar(False)
 
-cax =  fig.add_axes([0.15,0.06,0.7,0.02])
+#cax =  fig.add_axes([0.15,0.06,0.7,0.02])
+#cbar = fig.colorbar(p2,cax=cax,orientation='horizontal')
+#cbar.set_label('cloud ice variance(kg/kg)**2')
+#fig.subplots_adjust(wspace=-0.1)  
+
+
+cax =  fig.add_axes([0.15,0.06,0.46,0.02])
 cbar = fig.colorbar(p2,cax=cax,orientation='horizontal')
-cbar.set_label('cloud ice variance(kg/kg)**2')
+cbar.set_label('$\sigma_{q_{\mathrm{i}}}^2$ (kg/kg)$^2$')
 fig.subplots_adjust(wspace=-0.1)  
+
+
+cax =  fig.add_axes([0.65,0.06,0.23,0.02])
+cbar = fig.colorbar(p3,cax=cax,orientation='horizontal')
+cbar.set_label('$\sigma_{q_{\mathrm{i}}}^2$ (kg/kg)')
 #fig.tight_layout()
 #fig.text(0,0,'DARDAR')  
-plt.savefig('var.pdf', bbox_inches="tight")
-#plt.savefig(opath+'var.pdf')
-plt.close()
+#fig.tight_layout()
+#fig.text(0,0,'DARDAR')  
+#plt.savefig('var.pdf', bbox_inches="tight")
+#plt.savefig('var_korr.pdf', bbox_inches="tight")
+#plt.close()
 
 
